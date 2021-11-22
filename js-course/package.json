@@ -1,0 +1,12 @@
+{
+  "name": "bytebank",
+  "version": "1.0.0",
+  "description": "Project of bytebank in js",
+  "main": "index.js",
+  "author": "Artur Oscar",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "start" : "node index.js"
+  }
+}

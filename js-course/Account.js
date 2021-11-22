@@ -3,7 +3,7 @@ export class Account {
    agency
    value = 0
 
-   Account(number, agency) {
+   constructor(number, agency) {
       this.number = number;
       this.agency = agency;
    }
@@ -15,16 +15,15 @@ export class Account {
       return `The withdraw was successful: ${value}`
    }
    deposit(value) {
-      if (valor <= 0)
+      if (value <= 0)
          return -1
-      this.value += valor
-      return `The deposit was successful: ${valor}`
+      this.value += value
+      return `The deposit was successful: ${value}`
    }
    transfer(value, account) {
-      withdrawnAmount = this.toWithdraw(value)
-      transfer = account.deposit(withdrawnAmount)
-      if (transfer == -1)
-         return -1
-      return `The transfer was successful: ${transfer} to ${account}`
+      const withdrawnAmount = this.toWithdraw(value)
+      const transfer = account.deposit(value)
+
+      return transfer == -1 ? -1 : `The transfer was successful: ${transfer} to ${account.number}:${account.agency}`
    }
 }
