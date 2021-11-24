@@ -1,9 +1,10 @@
 export class Account {
-
+   static _totalAccounts = 0;
    constructor(initialBalance, customer, agency) {
       this._balance = initialBalance;
       this._customer = customer;
       this._agency = agency;
+      this._number = Account._totalAccounts++ + 1;
    }
 
    toWithdraw(value) {
@@ -23,5 +24,16 @@ export class Account {
 
       return account.deposit(withdrawnAmount);
    }
+   set customer(customer) {
+      if (customer instanceof Customer)
+         this._customer = customer;
+   }
 
+   get customer() {
+      return this._customer;
+   }
+
+   get balance() {
+      return this._balance;
+   }
 }
