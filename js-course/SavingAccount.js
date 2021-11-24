@@ -1,7 +1,7 @@
-export class Account {
+export class SavingAccount {
 
-   constructor(initialBalance, customer, agency) {
-      this._balance = initialBalance;
+   constructor(balance, customer, agency) {
+      this.balance = balance;
       this._customer = customer;
       this._agency = agency;
    }
@@ -23,5 +23,4 @@ export class Account {
 
       return account.deposit(withdrawnAmount);
    }
-
 }
