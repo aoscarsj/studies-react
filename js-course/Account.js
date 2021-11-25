@@ -1,10 +1,21 @@
+import { CheckingAccount } from './CheckingAccount.js'
+
+// Abstract class
 export class Account {
    static _totalAccounts = 0;
    constructor(initialBalance, customer, agency) {
+
+      if (this.constructor == Account) {
+         throw new Error('You cannot instantiate an Account object directly.');
+         return null;
+      }
+
       this._balance = initialBalance;
       this._customer = customer;
       this._agency = agency;
       this._number = Account._totalAccounts++ + 1;
+
+      console.log(this.constructor);
    }
 
    toWithdraw(value) {

@@ -10,9 +10,12 @@ checkingAccount.deposit(500);
 checkingAccount.toWithdraw(100);
 
 const savingAccount = new SavingAccount(100, client1, 1001);
+const account = new Account(100, client1, 1001);
+console.log(account); // fail
 
 console.log(checkingAccount);
 console.log(savingAccount);
 
 // console.log((checkingAccount instanceof Account)); // true
 // console.log((savingAccount instanceof Account));   // true
+
