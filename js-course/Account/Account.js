@@ -24,6 +24,13 @@ export class Account {
       this._balance -= value;
       return value;
    }
+   _toWithdraw(value, fee) {
+      value = value * (1 + fee);
+      if (this._balance < value || value < 0 || fee < 0)
+         return -1;
+      this._balance -= value;
+      return value;
+   }
    deposit(value) {
       if (this.value <= 0)
          return -1;

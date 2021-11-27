@@ -1,21 +1,19 @@
-import { Customer } from "./Customer.js";
-import { CheckingAccount } from "./CheckingAccount.js";
-import { SavingAccount } from "./SavingAccount.js";
-import { Account } from './Account.js';
+import { Employee } from './Employee/Employee.js'
+import { Director } from './Employee/Director.js'
+import { Manager } from './Employee/Manager.js'
+import { AuthenticationSystem } from './AuthenticationSystem.js'
+import { Customer } from './Customer.js'
 
-const client1 = new Customer("Artur Oscar", "111.222.333-44");
 
-const checkingAccount = new CheckingAccount(client1, 1001);
-checkingAccount.deposit(500);
-checkingAccount.toWithdraw(100);
+const director = new Director("Artur", 10000, 12345678900)
+const manager = new Manager("Oscar", 5000, 987654321123)
+const client = new Customer("Junior", 12345678900, 998877)
 
-const savingAccount = new SavingAccount(100, client1, 1001);
-const account = new Account(100, client1, 1001);
-console.log(account); // fail
+console.log(director)
 
-console.log(checkingAccount);
-console.log(savingAccount);
+//const AuthenticationSystem = new AuthenticationSystem("")
+director.createPassword(1234)
 
-// console.log((checkingAccount instanceof Account)); // true
-// console.log((savingAccount instanceof Account));   // true
-
+console.log(AuthenticationSystem.login(director, 1234))
+console.log(AuthenticationSystem.login(manager, null)); // it's crazy.
+console.log(AuthenticationSystem.login(client, 998877));
