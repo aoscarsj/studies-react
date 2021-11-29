@@ -1,8 +1,19 @@
+import { Component } from 'react';
+import NoteList from './components/NoteList';
+import RegistrationForm from './components/RegistrationForm';
 
-function App() {
-  return (
-    <h1>teste</h1>
-  );
+class App extends Component {
+  render() {
+    return (
+      <section>
+        <RegistrationForm />
+        <NoteList />
+
+      </section >
+
+    );
+  }
+
 }
 
 export default App;
