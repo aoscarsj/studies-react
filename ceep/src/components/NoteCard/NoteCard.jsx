@@ -4,11 +4,11 @@ import './style.css';
 class NoteCard extends Component {
   render() {
     return (
-      <section className='card-nota'>
-        <header>
-          <h3>Title</h3>
+      <section className='note-card'>
+        <header className='note-card_header'>
+          <h3 className='note-card_title'>Title</h3>
         </header>
-        <p>Write your notes here.</p>
+        <p className='note-card_text'>Write your notes here.</p>
       </section>
     );
   }
