@@ -15,5 +15,5 @@ console.log(director)
 director.createPassword(1234)
 
 console.log(AuthenticationSystem.login(director, 1234))
-console.log(AuthenticationSystem.login(manager, null)); // it's crazy.
+console.log(AuthenticationSystem.login(manager, 1234)); // it's crazy.
 console.log(AuthenticationSystem.login(client, 998877));

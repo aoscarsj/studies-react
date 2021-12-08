@@ -3,14 +3,15 @@ import NoteCard from '../NoteCard';
 import './style.css';
 
 class NoteList extends Component {
+  
   render() {
     return (
       <ul className='note-list'>
-        {Array.of('Work', 'Work', 'Study').map((category, index) => {
+        {this.props.notas.map((note, index) => {
           return (
-            <li key={index} className='note-list-item'>
-              <div>{category}</div>
-              <NoteCard />
+            <li className='note-list-item'key={index}>
+              
+              <NoteCard  title={note.title} text={note.text}/>
             </li>
           );
         })}
