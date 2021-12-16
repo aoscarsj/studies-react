@@ -9,15 +9,15 @@ class App extends Component {
     super();
 
     this.state = {
-      notas: []
+      notes: []
     }
   }
 
   createNote(title, text) {
     const newNote = { title, text };
-    const newArrayNotes = { ...this.state.notas, newNote };
+    const newArrayNotes = [...this.state.notes, newNote];
     const newState = {
-      notas: newArrayNotes
+      notes: newArrayNotes
     }
     this.setState(newState);
   }
@@ -26,7 +26,7 @@ class App extends Component {
     return (
       <section className="content">
         <RegistrationForm createNote={this.createNote.bind(this)} />
-        <NoteList notas={this.state.notas} />
+        <NoteList notes={this.state.notes} />
       </section >
     );
   }
