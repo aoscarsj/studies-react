@@ -21,12 +21,17 @@ class App extends Component {
     }
     this.setState(newState);
   }
+  deleteNote(index) {
+    let newArray = this.state.notes;
+    newArray.splice(index, 1);
+    this.setState({ notes: newArray });
+  }
 
   render() {
     return (
       <section className="content">
         <RegistrationForm createNote={this.createNote.bind(this)} />
-        <NoteList notes={this.state.notes} />
+        <NoteList notes={this.state.notes} deleteNote={this.deleteNote.bind(this)} />
       </section >
     );
   }
