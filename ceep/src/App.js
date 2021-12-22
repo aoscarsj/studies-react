@@ -10,7 +10,8 @@ class App extends Component {
     super();
 
     this.state = {
-      notes: []
+      notes: [],
+      categories: [],
     }
   }
 
@@ -22,6 +23,13 @@ class App extends Component {
     }
     this.setState(newState);
   }
+
+  addCategory(nameCategory) {
+    const newArrayCategories = [...this.state.categories, nameCategory];
+    const newState = { ...this.state, categories: newArrayCategories }
+    this.setState(newState)
+  }
+
   deleteNote(index) {
     let newArray = this.state.notes;
     newArray.splice(index, 1);
@@ -33,7 +41,7 @@ class App extends Component {
       <section className="content">
         <RegistrationForm createNote={this.createNote.bind(this)} />
         <main className="main-content">
-          <CategoriesList />
+          <CategoriesList categories={this.state.categories} addCategory={this.addCategory.bind(this)} />
           <NoteList notes={this.state.notes} deleteNote={this.deleteNote.bind(this)} />
         </main>
       </section >
