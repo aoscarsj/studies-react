@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import './style.css';
 
 class RegistrationForm extends Component {
-  
   constructor(props) {
     super(props);
-    this.title = "";
-    this.text = "";
+    this.title = '';
+    this.text = '';
+    this.category = 'Without category';
   }
   _handleChangeTitle(event) {
     /* O this em JS eh dinamico, nesse contexto funciona, mas no onChange, ao executar, o this la nao se refere a esse obj.
@@ -19,14 +19,31 @@ class RegistrationForm extends Component {
     event.stopPropagation();
     this.text = event.target.value;
   }
+  _handleChangeCategory(event) {
+    event.stopPropagation();
+    this.category = event.target.value;
+  }
   _createNote(event) {
     event.preventDefault();
     event.stopPropagation();
-    this.props.createNote(this.title, this.text);
+    this.props.createNote(this.title, this.text, this.category);
   }
   render() {
     return (
-      <form className='registration-form' onSubmit={this._createNote.bind(this)}>
+      <form
+        className='registration-form'
+        onSubmit={this._createNote.bind(this)}
+      >
+        <select
+          onChange={this._handleChangeCategory.bind(this)}
+          className='registration-form_input'
+        >
+          <option>Without category</option>
+
+          {this.props.categories.map((category) => {
+            return <option>{category}</option>;
+          })}
+        </select>
         <input
           type='text'
           placeholder='Title'

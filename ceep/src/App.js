@@ -11,12 +11,12 @@ class App extends Component {
 
     this.state = {
       notes: [],
-      categories: [],
+      categories: ['Games', 'Music'],
     }
   }
 
-  createNote(title, text) {
-    const newNote = { title, text };
+  createNote(title, text, category) {
+    const newNote = { title, text, category };
     const newArrayNotes = [...this.state.notes, newNote];
     const newState = {
       notes: newArrayNotes
@@ -39,7 +39,7 @@ class App extends Component {
   render() {
     return (
       <section className="content">
-        <RegistrationForm createNote={this.createNote.bind(this)} />
+        <RegistrationForm categories={this.state.categories} createNote={this.createNote.bind(this)} />
         <main className="main-content">
           <CategoriesList categories={this.state.categories} addCategory={this.addCategory.bind(this)} />
           <NoteList notes={this.state.notes} deleteNote={this.deleteNote.bind(this)} />
