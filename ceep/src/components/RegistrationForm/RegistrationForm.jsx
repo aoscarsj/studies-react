@@ -27,6 +27,8 @@ class RegistrationForm extends Component {
     event.preventDefault();
     event.stopPropagation();
     this.props.createNote(this.title, this.text, this.category);
+    document.getElementById('note-title').value = '';
+    document.getElementById('note-body').value = '';
   }
   render() {
     return (
@@ -49,12 +51,14 @@ class RegistrationForm extends Component {
           placeholder='Title'
           className='registration-form_input'
           onChange={this._handleChangeTitle.bind(this)}
+          id='note-title'
         />
         <textarea
           rows={15}
           placeholder='Write your note... '
           className='registration-form_input'
           onChange={this._handleChangeText.bind(this)}
+          id='note-body'
         ></textarea>
         <button className='registration-form_input registration-form_submit'>
           Create note
